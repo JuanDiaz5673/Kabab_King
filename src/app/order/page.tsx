@@ -230,7 +230,14 @@ export default function OrderPage() {
 
       {/* Checkout Modal */}
       {showCheckout && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Checkout"
+          onClick={(e) => { if (e.target === e.currentTarget) setShowCheckout(false); }}
+          onKeyDown={(e) => { if (e.key === 'Escape') setShowCheckout(false); }}
+        >
           <div className="bg-white rounded-xl max-w-md w-full p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
               <h2 className="font-display text-2xl font-bold text-charcoal">Checkout</h2>

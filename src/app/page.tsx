@@ -50,24 +50,24 @@ export default function Home() {
           src={heroImage}
           alt="Sizzling kebabs fresh off the grill at Kabab King"
           fill
-          className="object-cover object-center"
+          className="object-cover object-center saturate-[1.3] contrast-[1.1] sm:saturate-[1.15] sm:contrast-100"
           sizes="100vw"
           priority
         />
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30 sm:bg-gradient-to-r sm:from-black/75 sm:via-black/60 sm:to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/10 sm:bg-gradient-to-r sm:from-black/75 sm:via-black/60 sm:to-black/30" />
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/40 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 sm:from-black/40 to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-4 sm:pt-8 pb-10 sm:pb-14 lg:pb-16 w-full">
           {/* Logo — cropped to remove empty space, bigger visual size */}
-          <div className="mb-3 sm:mb-5 h-[160px] sm:h-[220px] lg:h-[280px] w-[320px] sm:w-[450px] lg:w-[560px] relative overflow-hidden mx-auto sm:mx-0 sm:-ml-3 lg:-ml-4">
+          <div className="mb-5 sm:mb-7 h-[160px] sm:h-[220px] lg:h-[280px] w-[320px] sm:w-[450px] lg:w-[560px] relative overflow-hidden mx-auto sm:mx-0 sm:-ml-5 lg:-ml-7">
             <Image
               src="/header-logo.png"
               alt="Kabab King"
               width={600}
               height={600}
-              className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[400px] sm:w-[560px] lg:w-[700px] h-auto drop-shadow-xl"
+              className="absolute left-1/2 -translate-x-1/2 top-[45%] -translate-y-1/2 w-[400px] sm:w-[560px] lg:w-[700px] h-auto drop-shadow-xl"
               priority
             />
           </div>
@@ -367,7 +367,7 @@ export default function Home() {
             {/* Map placeholder */}
             <div className="aspect-[4/3] rounded-xl overflow-hidden border border-cream-dark bg-white shadow-sm">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1!2d-73.886!3d40.749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25f0115eddc23%3A0x4a7e8e8e8e8e8e8e!2s7301%2037th%20Rd%2C%20Jackson%20Heights%2C%20NY%2011372!5e0!3m2!1sen!2sus!4v1"
+                src="https://www.google.com/maps?q=Kabab+King+7301+37th+Rd+Jackson+Heights+NY+11372&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

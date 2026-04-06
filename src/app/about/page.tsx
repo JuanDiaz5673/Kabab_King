@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -96,16 +97,15 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Image placeholder */}
-            <div className="aspect-[4/3] rounded-xl overflow-hidden border border-cream-dark img-placeholder flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="w-20 h-20 rounded-full bg-maroon/10 flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-10 h-10 text-maroon/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <p className="text-sm text-warm-gray-light">Restaurant photo placeholder</p>
-              </div>
+            {/* Restaurant image */}
+            <div className="aspect-[4/3] rounded-xl overflow-hidden border border-cream-dark relative">
+              <Image
+                src="https://images.unsplash.com/photo-1603383822974-2d317b11fe2e?w=800&h=600&fit=crop"
+                alt="Sizzling kebabs and grilled meats at Kabab King restaurant"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
             </div>
           </div>
         </div>

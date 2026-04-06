@@ -43,6 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased" suppressHydrationWarning>
       <head>
+        <link rel="canonical" href="https://kababking.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -85,8 +86,11 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[99999] focus:bg-crimson focus:text-white focus:px-6 focus:py-3 focus:text-sm focus:font-semibold">
+          Skip to main content
+        </a>
         <Navbar />
-        <main className="flex-1 pt-16 sm:pt-[75px]">{children}</main>
+        <main id="main-content" className="flex-1 pt-16 sm:pt-[75px]">{children}</main>
         <Footer />
       </body>
     </html>
