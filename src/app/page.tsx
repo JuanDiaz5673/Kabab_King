@@ -59,58 +59,56 @@ export default function Home() {
         {/* Bottom gradient fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 sm:from-black/40 to-transparent" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-4 sm:pt-8 pb-10 sm:pb-14 lg:pb-16 w-full">
-          {/* Logo — cropped to remove empty space, bigger visual size */}
-          <div className="mb-5 sm:mb-7 h-[160px] sm:h-[220px] lg:h-[280px] w-[320px] sm:w-[450px] lg:w-[560px] relative overflow-hidden mx-auto sm:mx-0 sm:-ml-5 lg:-ml-7">
-            <Image
-              src="/header-logo.png"
-              alt="Kabab King"
-              width={600}
-              height={600}
-              className="absolute left-1/2 -translate-x-1/2 top-[45%] -translate-y-1/2 w-[400px] sm:w-[560px] lg:w-[700px] h-auto drop-shadow-xl"
-              priority
-            />
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-2 sm:pt-4 pb-10 sm:pb-14 lg:pb-16 w-full">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-8">
+            {/* Left: Text content */}
+            <div className="flex-1 text-center sm:text-left">
+              <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-4 sm:mb-6 drop-shadow-lg">
+                Authentic Kebabs
+                <span className="block text-gold-light">Since 1997</span>
+              </h1>
+
+              <p className="text-base sm:text-xl text-white/80 max-w-lg mx-auto sm:mx-0 mb-6 sm:mb-8 leading-relaxed">
+                Experience the finest Pakistani &amp; Indian cuisine in Jackson Heights, Queens.
+                Handcrafted over open flame, served with generations of tradition.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <Link
+                  href="/order"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 bg-crimson text-white font-semibold rounded hover:bg-crimson-dark transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-crimson/30 text-base sm:text-lg"
+                >
+                  Order Now
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/menu"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded border-2 border-white/30 hover:bg-white/20 hover:border-white/50 transition-all text-base sm:text-lg"
+                >
+                  View Menu
+                </Link>
+              </div>
+            </div>
+
+            {/* Right: Logo */}
+            <div className="hidden lg:flex items-center justify-center flex-shrink-0">
+              <div className="h-[491px] w-[613px] relative overflow-hidden">
+                <Image
+                  src="/header-logo.png"
+                  alt="Kabab King"
+                  width={600}
+                  height={600}
+                  className="absolute left-1/2 -translate-x-1/2 top-[45%] -translate-y-1/2 w-[796px] h-auto drop-shadow-xl"
+                  priority
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="max-w-2xl text-center sm:text-left">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-4 sm:mb-5">
-              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-xs font-medium text-white/90">Open 24/7 &mdash; Always Serving</span>
-            </div>
-
-            <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-4 sm:mb-6 drop-shadow-lg">
-              Authentic Kebabs
-              <span className="block text-gold-light">Since 1997</span>
-            </h1>
-
-            <p className="text-base sm:text-xl text-white/80 max-w-lg mx-auto sm:mx-0 mb-6 sm:mb-8 leading-relaxed">
-              Experience the finest Pakistani &amp; Indian cuisine in Jackson Heights, Queens.
-              Handcrafted over open flame, served with generations of tradition.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Link
-                href="/order"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 bg-crimson text-white font-semibold rounded hover:bg-crimson-dark transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-crimson/30 text-base sm:text-lg"
-              >
-                Order Now
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </Link>
-              <Link
-                href="/menu"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded border-2 border-white/30 hover:bg-white/20 hover:border-white/50 transition-all text-base sm:text-lg"
-              >
-                View Menu
-              </Link>
-            </div>
-
-            </div>
-
           {/* Quick stats */}
-          <div className="flex items-center justify-center sm:justify-start gap-5 sm:gap-10 mt-8 sm:mt-12">
+          <div className="flex items-center justify-center sm:justify-start gap-5 sm:gap-10 mt-8 sm:mt-10">
             {[
               { value: '25+', label: 'Years Serving' },
               { value: '418+', label: 'Yelp Reviews' },
@@ -123,7 +121,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Halal stamp — below stats */}
+          {/* Halal stamp */}
           <div className="mt-5 sm:mt-6 text-center sm:text-left">
             <div className="inline-flex bg-white/80 backdrop-blur-sm rounded-full p-0.5 shadow-lg">
               <Image
