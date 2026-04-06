@@ -1,10 +1,28 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 
+const BASE_URL = 'https://kababking.com';
+
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about Kabab King — a Jackson Heights staple since 1997 serving authentic halal Pakistani & Indian cuisine 24/7.',
+    'Learn about Kabab King — a Jackson Heights staple since 1997 serving authentic halal Pakistani & Indian cuisine 24/7. Our story, values, and locations.',
+  openGraph: {
+    title: 'About Us | Kabab King',
+    description:
+      'A Jackson Heights institution since 1997. Authentic halal Pakistani & Indian cuisine served 24/7.',
+    url: `${BASE_URL}/about`,
+    images: [{ url: '/kk-hero.png', width: 1200, height: 630, alt: 'About Kabab King' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Us | Kabab King',
+    description: 'A Jackson Heights institution since 1997. Authentic halal cuisine served 24/7.',
+    images: ['/kk-hero.png'],
+  },
+  alternates: {
+    canonical: `${BASE_URL}/about`,
+  },
 };
 
 const values = [
@@ -58,6 +76,19 @@ const milestones = [
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+              { '@type': 'ListItem', position: 2, name: 'About Us', item: `${BASE_URL}/about` },
+            ],
+          }),
+        }}
+      />
       {/* Header */}
       <section className="bg-cream py-12 sm:py-16 grain relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
