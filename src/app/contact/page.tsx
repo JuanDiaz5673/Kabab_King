@@ -63,7 +63,7 @@ export default function ContactPage() {
                       </svg>
                     ),
                     label: 'Hours',
-                    value: 'Open 24 Hours, 7 Days a Week',
+                    value: 'Open Daily 7 AM – 2 AM',
                     href: null,
                   },
                 ].map((item) => (

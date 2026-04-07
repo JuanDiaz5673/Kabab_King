@@ -26,7 +26,6 @@ export default function Footer() {
             </div>
             <p className="text-sm text-white/60 leading-relaxed max-w-xs">
               Authentic Pakistani &amp; Indian cuisine in the heart of Jackson Heights, Queens.
-              Serving our community 24 hours a day, 7 days a week.
             </p>
             {/* Social Links */}
             <div className="flex gap-3 mt-5">
@@ -80,9 +79,9 @@ export default function Footer() {
             <div className="space-y-2.5 text-sm text-white/60">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-white font-medium">Open 24/7</span>
+                <span className="text-white font-medium">Open Daily 7AM – 2AM</span>
               </div>
-              <p>We never close. Breakfast, lunch, dinner, and late-night — we&apos;re always here.</p>
+              <p>Every day of the week. Breakfast, lunch, dinner, and late-night — we&apos;re here 19 hours a day.</p>
             </div>
             <div className="mt-4 p-3 bg-white/5 rounded-lg">
               <p className="text-xs text-white/40 uppercase tracking-wider mb-1">100% Halal</p>

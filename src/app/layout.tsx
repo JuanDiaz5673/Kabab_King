@@ -13,12 +13,12 @@ export const metadata: Metadata = {
     template: '%s | Kabab King',
   },
   description:
-    'Authentic Pakistani & Indian cuisine in Jackson Heights, Queens. Open 24/7. View our full menu with 50+ halal dishes, order online, or book catering.',
+    'Authentic Pakistani & Indian cuisine in Jackson Heights, Queens. Open daily 7 AM – 2 AM. View our full menu with 50+ halal dishes, order online, or book catering.',
   keywords: [
     'halal food Jackson Heights',
     'kebabs Queens NY',
     'Pakistani restaurant near me',
-    '24 hour restaurant Queens',
+    'late night restaurant Queens',
     'Indian food Jackson Heights',
     'catering halal Queens',
     'biryani Queens',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Kabab King | Authentic Pakistani & Indian Cuisine',
     description:
-      'Authentic halal kebabs, biryani, and curries served 24/7 in Jackson Heights, Queens. 50+ dishes, online ordering, and catering.',
+      'Authentic halal kebabs, biryani, and curries in Jackson Heights, Queens. Open daily 7 AM – 2 AM. 50+ dishes, online ordering, and catering.',
     url: BASE_URL,
     siteName: 'Kabab King',
     locale: 'en_US',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Kabab King | Authentic Pakistani & Indian Cuisine',
     description:
-      'Authentic halal kebabs, biryani, and curries served 24/7 in Jackson Heights, Queens.',
+      'Authentic halal kebabs, biryani, and curries in Jackson Heights, Queens. Open daily 7 AM – 2 AM.',
     images: ['/kk-hero.png'],
   },
   robots: {
@@ -97,7 +97,7 @@ function buildJsonLd() {
     '@id': `${BASE_URL}/#restaurant`,
     name: 'Kabab King',
     description:
-      'Authentic Pakistani & Indian halal restaurant in Jackson Heights, Queens. Open 24/7 serving kebabs, biryani, curries, and more since 1997.',
+      'Authentic Pakistani & Indian halal restaurant in Jackson Heights, Queens. Open daily 7 AM – 2 AM serving kebabs, biryani, curries, and more since 1997.',
     url: BASE_URL,
     telephone: '+1-718-457-5857',
     image: `${BASE_URL}/kk-hero.png`,
@@ -125,8 +125,8 @@ function buildJsonLd() {
         'Saturday',
         'Sunday',
       ],
-      opens: '00:00',
-      closes: '23:59',
+      opens: '07:00',
+      closes: '02:00',
     },
     servesCuisine: ['Pakistani', 'Indian', 'Halal'],
     priceRange: '$$',
@@ -169,7 +169,7 @@ function buildJsonLd() {
           bestRating: '5',
         },
         reviewBody:
-          'Amazing food at unbeatable prices. Open 24/7 which is perfect for late-night cravings. The lamb chops are incredible.',
+          'Amazing food at unbeatable prices. Open until 2 AM which is perfect for late-night cravings. The lamb chops are incredible.',
       },
       {
         '@type': 'Review',

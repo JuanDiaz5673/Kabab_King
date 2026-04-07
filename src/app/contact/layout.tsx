@@ -5,18 +5,18 @@ const BASE_URL = 'https://kababking.com';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Contact Kabab King — visit us at 7301 37th Rd, Jackson Heights, Queens, NY 11372. Call (718) 457-5857. Open 24/7. Directions, map, and contact form.',
+    'Contact Kabab King — visit us at 7301 37th Rd, Jackson Heights, Queens, NY 11372. Call (718) 457-5857. Open daily 7 AM – 2 AM. Directions, map, and contact form.',
   openGraph: {
     title: 'Contact | Kabab King',
     description:
-      'Visit Kabab King at 7301 37th Rd, Jackson Heights, Queens, NY 11372. Call (718) 457-5857. Open 24/7.',
+      'Visit Kabab King at 7301 37th Rd, Jackson Heights, Queens, NY 11372. Call (718) 457-5857. Open daily 7 AM – 2 AM.',
     url: `${BASE_URL}/contact`,
     images: [{ url: '/kk-hero.png', width: 1200, height: 630, alt: 'Contact Kabab King' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact | Kabab King',
-    description: 'Visit us at 7301 37th Rd, Jackson Heights, Queens, NY. Call (718) 457-5857. Open 24/7.',
+    description: 'Visit us at 7301 37th Rd, Jackson Heights, Queens, NY. Call (718) 457-5857. Open daily 7 AM – 2 AM.',
     images: ['/kk-hero.png'],
   },
   alternates: {

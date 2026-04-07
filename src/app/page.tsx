@@ -27,7 +27,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    text: 'Amazing food at unbeatable prices. Open 24/7 which is perfect for late-night cravings. The lamb chops are incredible.',
+    text: 'Amazing food at unbeatable prices. Open until 2 AM which is perfect for late-night cravings. The lamb chops are incredible.',
     author: 'Sarah K.',
     source: 'Yelp',
     rating: 5,
@@ -112,7 +112,7 @@ export default function Home() {
             {[
               { value: '25+', label: 'Years Serving' },
               { value: '418+', label: 'Yelp Reviews' },
-              { value: '24/7', label: 'Always Open' },
+              { value: 'Daily', label: '7AM – 2AM' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="font-display text-2xl sm:text-3xl font-bold text-white">{stat.value}</div>
@@ -232,8 +232,8 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 ),
-                title: 'Open 24 Hours',
-                desc: 'Day or night, we\'re here for you. Breakfast, lunch, dinner, or a 3 AM craving — we never close.',
+                title: 'Open Daily 7AM–2AM',
+                desc: 'From early breakfast through late-night cravings — we\'re here 19 hours a day, every day of the week.',
               },
             ].map((feature) => (
               <div key={feature.title} className="text-center p-5 sm:p-8 bg-white rounded-xl border border-cream-dark">
@@ -356,7 +356,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-charcoal">Hours</h3>
-                    <p className="text-warm-gray text-sm">Open 24 Hours, 7 Days a Week</p>
+                    <p className="text-warm-gray text-sm">Open Daily 7 AM – 2 AM</p>
                   </div>
                 </div>
               </div>

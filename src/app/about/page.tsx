@@ -6,18 +6,18 @@ const BASE_URL = 'https://kababking.com';
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about Kabab King — a Jackson Heights staple since 1997 serving authentic halal Pakistani & Indian cuisine 24/7. Our story, values, and locations.',
+    'Learn about Kabab King — a Jackson Heights staple since 1997 serving authentic halal Pakistani & Indian cuisine daily 7 AM – 2 AM. Our story, values, and locations.',
   openGraph: {
     title: 'About Us | Kabab King',
     description:
-      'A Jackson Heights institution since 1997. Authentic halal Pakistani & Indian cuisine served 24/7.',
+      'A Jackson Heights institution since 1997. Authentic halal Pakistani & Indian cuisine, open daily 7 AM – 2 AM.',
     url: `${BASE_URL}/about`,
     images: [{ url: '/kk-hero.png', width: 1200, height: 630, alt: 'About Kabab King' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About Us | Kabab King',
-    description: 'A Jackson Heights institution since 1997. Authentic halal cuisine served 24/7.',
+    description: 'A Jackson Heights institution since 1997. Authentic halal cuisine, open daily 7 AM – 2 AM.',
     images: ['/kk-hero.png'],
   },
   alternates: {
@@ -116,9 +116,10 @@ export default function AboutPage() {
                   never sleeps.
                 </p>
                 <p>
-                  Our kitchen runs 24 hours a day, 7 days a week, because great food doesn&apos;t follow
-                  a schedule. Whether it&apos;s a pre-dawn breakfast of halwa puri, a midday feast of
-                  smoky kebabs, or a late-night bowl of nihari &mdash; we&apos;re always here.
+                  Our doors open every morning at 7 AM and don&apos;t close until 2 AM &mdash; because
+                  great food doesn&apos;t follow a strict schedule. Whether it&apos;s a morning breakfast of
+                  halwa puri, a midday feast of smoky kebabs, or a late-night bowl of nihari &mdash;
+                  we&apos;re here 19 hours a day, every day of the week.
                 </p>
                 <p>
                   Every dish at Kabab King is prepared with the same care and attention to detail that
