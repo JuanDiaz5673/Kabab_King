@@ -64,22 +64,22 @@ export default function Navbar() {
         <div style={{ height: '3px', background: 'linear-gradient(to right, #5B1A1A, #C41E3A, #D4A843)' }} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-[72px]">
+          <div className="flex items-center justify-between h-20 sm:h-[88px]">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group py-2" aria-label="Kabab King - Home">
+            <Link href="/" className="flex items-center gap-3 group py-2" aria-label="Kabab King - Home">
               <Image
                 src="/navbar-logo.png"
                 alt="Kabab King Logo"
-                width={44}
-                height={44}
-                className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                width={64}
+                height={64}
+                className="w-14 h-14 sm:w-16 sm:h-16 object-contain"
                 priority
               />
               <div className="flex flex-col">
-                <span className="font-display text-base sm:text-xl font-bold text-maroon leading-none tracking-wide">
+                <span className="font-display text-xl sm:text-2xl font-bold text-maroon leading-none tracking-wide">
                   Kabab King
                 </span>
-                <span className="text-[8px] sm:text-[10px] text-warm-gray tracking-[0.15em] uppercase mt-0.5">
+                <span className="text-[10px] sm:text-[11px] text-warm-gray tracking-[0.15em] uppercase mt-1">
                   Jackson Heights, Queens
                 </span>
               </div>
@@ -189,7 +189,7 @@ export default function Navbar() {
         style={{
           position: 'fixed',
           inset: 0,
-          top: '67px',
+          top: '83px',
           zIndex: 9997,
           backgroundColor: 'rgba(0,0,0,0.3)',
           backdropFilter: 'blur(2px)',
@@ -203,7 +203,7 @@ export default function Navbar() {
       <div
         style={{
           position: 'fixed',
-          top: '67px',
+          top: '83px',
           left: 0,
           right: 0,
           zIndex: 9998,

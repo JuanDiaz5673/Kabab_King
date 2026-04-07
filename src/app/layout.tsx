@@ -236,7 +236,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Navbar />
-        <main id="main-content" className="flex-1 pt-16 sm:pt-[75px]">{children}</main>
+        <main id="main-content" className="flex-1 pt-20 sm:pt-[91px]">{children}</main>
         <Footer />
       </body>
     </html>
