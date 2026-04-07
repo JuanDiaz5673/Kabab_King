@@ -94,13 +94,13 @@ export default function Home() {
 
             {/* Logo — above text on mobile, right of text on desktop */}
             <div className="flex items-center justify-center flex-shrink-0 mb-2 sm:mb-4 lg:mb-0">
-              <div className="h-[200px] w-[260px] sm:h-[300px] sm:w-[380px] lg:h-[491px] lg:w-[613px] relative overflow-hidden">
+              <div className="h-[240px] w-[312px] sm:h-[300px] sm:w-[380px] lg:h-[491px] lg:w-[613px] relative overflow-hidden">
                 <Image
                   src="/header-logo.png"
                   alt="Kabab King"
                   width={600}
                   height={600}
-                  className="absolute left-1/2 -translate-x-1/2 top-[45%] -translate-y-1/2 w-[340px] sm:w-[500px] lg:w-[796px] h-auto drop-shadow-xl"
+                  className="absolute left-1/2 -translate-x-1/2 top-[45%] -translate-y-1/2 w-[408px] sm:w-[500px] lg:w-[796px] h-auto drop-shadow-xl"
                   priority
                 />
               </div>
