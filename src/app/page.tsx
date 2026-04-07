@@ -60,7 +60,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 sm:from-black/40 to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-2 sm:pt-4 pb-10 sm:pb-14 lg:pb-16 w-full">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-8">
+          <div className="flex flex-col-reverse lg:flex-row lg:items-center lg:gap-8">
             {/* Left: Text content */}
             <div className="flex-1 text-center sm:text-left">
               <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-4 sm:mb-6 drop-shadow-lg">
@@ -92,15 +92,15 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Logo */}
-            <div className="hidden lg:flex items-center justify-center flex-shrink-0">
-              <div className="h-[491px] w-[613px] relative overflow-hidden">
+            {/* Logo — above text on mobile, right of text on desktop */}
+            <div className="flex items-center justify-center flex-shrink-0 mb-2 sm:mb-4 lg:mb-0">
+              <div className="h-[200px] w-[260px] sm:h-[300px] sm:w-[380px] lg:h-[491px] lg:w-[613px] relative overflow-hidden">
                 <Image
                   src="/header-logo.png"
                   alt="Kabab King"
                   width={600}
                   height={600}
-                  className="absolute left-1/2 -translate-x-1/2 top-[45%] -translate-y-1/2 w-[796px] h-auto drop-shadow-xl"
+                  className="absolute left-1/2 -translate-x-1/2 top-[45%] -translate-y-1/2 w-[340px] sm:w-[500px] lg:w-[796px] h-auto drop-shadow-xl"
                   priority
                 />
               </div>
