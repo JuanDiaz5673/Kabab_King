@@ -149,39 +149,42 @@ function buildJsonLd() {
     review: [
       {
         '@type': 'Review',
-        author: { '@type': 'Person', name: 'Rashid M.' },
-        datePublished: '2024-06-15',
+        author: { '@type': 'Person', name: 'Anish C' },
         reviewRating: {
           '@type': 'Rating',
           ratingValue: '5',
           bestRating: '5',
         },
+        name: 'Best Chicken Kebabs Ever!',
         reviewBody:
-          'The best kebabs in all of Queens! We come here every week and the quality never disappoints. The nihari is a must-try.',
+          'The chicken kebabs are exceptional \u2014 the meat quality, the spices, and the flavor were incredible. Quick service and affordable prices.',
+        publisher: { '@type': 'Organization', name: 'TripAdvisor' },
       },
       {
         '@type': 'Review',
-        author: { '@type': 'Person', name: 'Sarah K.' },
-        datePublished: '2024-08-22',
+        author: { '@type': 'Person', name: 'Daniel Sumit Ghosal' },
         reviewRating: {
           '@type': 'Rating',
           ratingValue: '5',
           bestRating: '5',
         },
+        name: 'Oh my, I\u2019m Drooling!!!!',
         reviewBody:
-          'Amazing food at unbeatable prices. Open until 2 AM which is perfect for late-night cravings. The lamb chops are incredible.',
+          'One of NY\u2019s best Indian and Pakistani restaurants. Fresh naan and traditional Mughal cuisine done right.',
+        publisher: { '@type': 'Organization', name: 'TripAdvisor' },
       },
       {
         '@type': 'Review',
-        author: { '@type': 'Person', name: 'David L.' },
-        datePublished: '2024-10-05',
+        author: { '@type': 'Person', name: 'Tampa_traveler63' },
         reviewRating: {
           '@type': 'Rating',
-          ratingValue: '5',
+          ratingValue: '4',
           bestRating: '5',
         },
+        name: 'Lots of great food at good prices',
         reviewBody:
-          'We ordered catering for our office event and everyone loved it. The mixed grill platter was the highlight of the party.',
+          'Came with a group of 8 \u2014 excellent service and dishes. The best (and most raved-about dish) was the lamb chops. The kebabs were also excellent.',
+        publisher: { '@type': 'Organization', name: 'TripAdvisor' },
       },
     ],
     sameAs: [

@@ -1,44 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { popularItems, heroImage, categoryImages } from '@/data/menu';
-
-function StarRating({ rating }: { rating: number }) {
-  return (
-    <div className="flex gap-0.5" aria-label={`${rating} out of 5 stars`}>
-      {[1, 2, 3, 4, 5].map((star) => (
-        <svg
-          key={star}
-          className={`w-4 h-4 ${star <= rating ? 'text-gold' : 'text-cream-dark'}`}
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
-
-const testimonials = [
-  {
-    text: 'The best kebabs in all of Queens! We come here every week and the quality never disappoints. The nihari is a must-try.',
-    author: 'Rashid M.',
-    source: 'Google Review',
-    rating: 5,
-  },
-  {
-    text: 'Amazing food at unbeatable prices. Open until 2 AM which is perfect for late-night cravings. The lamb chops are incredible.',
-    author: 'Sarah K.',
-    source: 'Yelp',
-    rating: 5,
-  },
-  {
-    text: 'We ordered catering for our office event and everyone loved it. The mixed grill platter was the highlight of the party.',
-    author: 'David L.',
-    source: 'Google Review',
-    rating: 5,
-  },
-];
+import ReviewCarousel from '@/components/ReviewCarousel';
 
 export default function Home() {
   return (
@@ -341,35 +304,17 @@ export default function Home() {
       {/* ───── TESTIMONIALS ───── */}
       <section className="py-16 sm:py-24 bg-warm-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10 sm:mb-12">
             <p className="text-sm font-medium text-gold-dark uppercase tracking-[0.2em] mb-2">What Our Guests Say</p>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-maroon-dark">
               Loved by Our Community
             </h2>
+            <p className="text-sm text-warm-gray-light mt-3">
+              Click any review to read it on its source site
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <blockquote
-                key={t.author}
-                className="bg-white rounded-xl p-6 sm:p-8 border border-cream-dark hover:shadow-lg hover:shadow-maroon/5 transition-all"
-              >
-                <StarRating rating={t.rating} />
-                <p className="mt-4 text-warm-gray leading-relaxed text-sm sm:text-base italic">
-                  &ldquo;{t.text}&rdquo;
-                </p>
-                <footer className="mt-5 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-maroon/10 to-crimson/10 flex items-center justify-center">
-                    <span className="text-sm font-bold text-maroon">{t.author[0]}</span>
-                  </div>
-                  <div>
-                    <cite className="not-italic text-sm font-semibold text-charcoal">{t.author}</cite>
-                    <p className="text-xs text-warm-gray-light">{t.source}</p>
-                  </div>
-                </footer>
-              </blockquote>
-            ))}
-          </div>
+          <ReviewCarousel />
         </div>
       </section>
 
