@@ -70,7 +70,8 @@ const milestones = [
   { year: '2010', event: 'Expanded kitchen and introduced our full catering service' },
   { year: '2015', event: 'Featured in major food publications and TV segments' },
   { year: '2020', event: 'Continued serving through the pandemic, feeding first responders' },
-  { year: '2024', event: 'Catered the NYC mayoral inauguration celebration' },
+  { year: '2025', event: 'Named one of Zohran Mamdani\u2019s three favorite Queens restaurants during his historic mayoral campaign' },
+  { year: '2026', event: 'Catered Mayor Zohran Mamdani\u2019s inauguration at NYC City Hall on January 1st \u2014 serving our signature biryani and samosas' },
 ];
 
 export default function AboutPage() {
