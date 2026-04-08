@@ -4,6 +4,7 @@ export interface MenuItem {
   price: number;
   category: string;
   popular?: boolean;
+  mamdaniPick?: boolean;
   image?: string;
 }
 
@@ -69,9 +70,9 @@ export const menuItems: MenuItem[] = [
   { name: 'Daal Gosht', description: 'Lentils slow-cooked with tender meat pieces', price: 11.99, category: 'Curries' },
 
   // Rice & Biryani
-  { name: 'Chicken Biryani', description: 'Fragrant basmati rice layered with spiced chicken and saffron', price: 10.99, category: 'Rice & Biryani', popular: true },
-  { name: 'Beef Biryani', description: 'Aromatic rice with tender marinated beef and whole spices', price: 11.99, category: 'Rice & Biryani' },
-  { name: 'Lamb Biryani', description: 'Premium lamb pieces with saffron-infused basmati rice', price: 13.99, category: 'Rice & Biryani' },
+  { name: 'Chicken Biryani', description: 'Fragrant basmati rice layered with spiced chicken and saffron', price: 10.99, category: 'Rice & Biryani', popular: true, mamdaniPick: true },
+  { name: 'Beef Biryani', description: 'Aromatic rice with tender marinated beef and whole spices', price: 11.99, category: 'Rice & Biryani', mamdaniPick: true },
+  { name: 'Lamb Biryani', description: 'Premium lamb pieces with saffron-infused basmati rice', price: 13.99, category: 'Rice & Biryani', mamdaniPick: true },
   { name: 'Vegetable Pulao', description: 'Basmati rice cooked with seasonal vegetables and mild spices', price: 8.99, category: 'Rice & Biryani' },
 
   // Seafood
@@ -102,8 +103,8 @@ export const menuItems: MenuItem[] = [
   { name: 'Omelette with Paratha', description: 'Fluffy masala omelette served with fresh paratha', price: 6.99, category: 'Breakfast' },
 
   // Samosas
-  { name: 'Samosa (2 pcs)', description: 'Crispy pastry filled with spiced potatoes and peas', price: 2.99, category: 'Samosas' },
-  { name: 'Chicken Samosa (2 pcs)', description: 'Flaky pastry filled with seasoned minced chicken', price: 3.99, category: 'Samosas' },
+  { name: 'Samosa (2 pcs)', description: 'Crispy pastry filled with spiced potatoes and peas', price: 2.99, category: 'Samosas', mamdaniPick: true },
+  { name: 'Chicken Samosa (2 pcs)', description: 'Flaky pastry filled with seasoned minced chicken', price: 3.99, category: 'Samosas', mamdaniPick: true },
   { name: 'Samosa Chaat', description: 'Crushed samosas topped with chickpeas, yogurt, and chutneys', price: 5.99, category: 'Samosas' },
 
   // Desserts
