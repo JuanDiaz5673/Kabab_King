@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { reviews, type Review } from '@/data/reviews';
 
-const AUTO_ADVANCE_MS = 6000;
+const AUTO_ADVANCE_MS = 5000;
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -11,7 +11,7 @@ function StarRating({ rating }: { rating: number }) {
       {[1, 2, 3, 4, 5].map((star) => (
         <svg
           key={star}
-          className={`w-4 h-4 sm:w-5 sm:h-5 ${star <= rating ? 'text-gold' : 'text-cream-dark'}`}
+          className={`w-3.5 h-3.5 ${star <= rating ? 'text-gold' : 'text-cream-dark'}`}
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -30,7 +30,7 @@ function SourceBadge({ source }: { source: Review['source'] }) {
     'The New Yorker': 'bg-charcoal/10 text-charcoal',
   };
   return (
-    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-semibold ${styles[source]}`}>
+    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold ${styles[source]}`}>
       {source}
     </span>
   );
@@ -39,6 +39,9 @@ function SourceBadge({ source }: { source: Review['source'] }) {
 export default function ReviewCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  // Number of cards visible at once — updated on mount and resize.
+  // Default to 1 for SSR (mobile-first); the effect immediately corrects on the client.
+  const [cardsInView, setCardsInView] = useState(1);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const next = useCallback(() => {
@@ -47,6 +50,16 @@ export default function ReviewCarousel() {
 
   const prev = useCallback(() => {
     setActiveIndex((i) => (i - 1 + reviews.length) % reviews.length);
+  }, []);
+
+  // Responsive cards-in-view: 1 on mobile, 3 on sm+ screens
+  useEffect(() => {
+    const update = () => {
+      setCardsInView(window.innerWidth >= 640 ? 3 : 1);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
   }, []);
 
   // Auto-advance
@@ -68,9 +81,12 @@ export default function ReviewCarousel() {
     return () => window.removeEventListener('keydown', onKey);
   }, [next, prev]);
 
+  const stepPct = 100 / cardsInView;
+  const showSpacers = cardsInView > 1;
+
   return (
     <div
-      className="relative max-w-4xl mx-auto"
+      className="relative max-w-6xl mx-auto"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -80,69 +96,102 @@ export default function ReviewCarousel() {
       aria-label="Customer reviews"
     >
       {/* Slide viewport */}
-      <div className="overflow-hidden rounded-2xl">
+      <div className="overflow-hidden">
         <div
-          className="flex transition-transform duration-700 ease-out"
-          style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+          className="flex transition-transform duration-700 ease-out py-4"
+          style={{ transform: `translateX(-${activeIndex * stepPct}%)` }}
         >
-          {reviews.map((review, i) => (
+          {/* Left spacer — centers the first card when showing multiple in view */}
+          {showSpacers && (
             <div
-              key={`${review.author}-${i}`}
-              className="w-full shrink-0 px-1 sm:px-2"
-              role="group"
-              aria-roledescription="slide"
-              aria-label={`${i + 1} of ${reviews.length}`}
-              aria-hidden={i !== activeIndex}
-            >
-              <a
-                href={review.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block bg-white rounded-2xl p-6 sm:p-10 border border-cream-dark shadow-sm hover:shadow-xl hover:shadow-maroon/5 hover:border-maroon/20 transition-all group"
+              className="shrink-0"
+              style={{ width: `${stepPct}%` }}
+              aria-hidden="true"
+            />
+          )}
+
+          {reviews.map((review, i) => {
+            const isActive = i === activeIndex;
+            return (
+              <div
+                key={`${review.author}-${i}`}
+                className={`shrink-0 px-2 sm:px-3 transition-all duration-500 ${
+                  showSpacers && !isActive ? 'opacity-50 scale-90' : 'opacity-100 scale-100'
+                }`}
+                style={{ width: `${stepPct}%` }}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`${i + 1} of ${reviews.length}`}
+                aria-hidden={!isActive}
               >
-                <div className="flex items-center justify-between mb-4 sm:mb-5">
-                  <StarRating rating={review.rating} />
-                  <SourceBadge source={review.source} />
-                </div>
+                <a
+                  href={review.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    // On non-active cards in multi-view mode, click should bring
+                    // the card into focus instead of navigating
+                    if (showSpacers && !isActive) {
+                      e.preventDefault();
+                      setActiveIndex(i);
+                    }
+                  }}
+                  className={`block bg-white rounded-xl p-5 border border-cream-dark transition-all group h-full ${
+                    isActive
+                      ? 'shadow-lg shadow-maroon/10 hover:shadow-xl hover:shadow-maroon/15 hover:border-maroon/20'
+                      : 'shadow-sm hover:shadow-md'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <StarRating rating={review.rating} />
+                    <SourceBadge source={review.source} />
+                  </div>
 
-                {review.title && (
-                  <h3 className="font-display text-lg sm:text-2xl font-bold text-maroon-dark mb-3 leading-tight">
-                    {review.title}
-                  </h3>
-                )}
+                  {review.title && (
+                    <h3 className="font-display text-base font-bold text-maroon-dark mb-2 leading-tight line-clamp-1">
+                      {review.title}
+                    </h3>
+                  )}
 
-                <svg className="w-7 h-7 sm:w-8 sm:h-8 text-gold/30 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
-                </svg>
+                  <svg className="w-5 h-5 text-gold/30 mb-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
+                  </svg>
 
-                <p className="text-warm-gray text-sm sm:text-base leading-relaxed italic mb-5 sm:mb-6">
-                  &ldquo;{review.text}&rdquo;
-                </p>
+                  <p className="text-warm-gray text-xs sm:text-sm leading-relaxed italic mb-4 line-clamp-4">
+                    &ldquo;{review.text}&rdquo;
+                  </p>
 
-                <div className="flex items-center justify-between pt-4 border-t border-cream-dark">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-maroon/10 to-crimson/10 flex items-center justify-center">
-                      <span className="text-sm sm:text-base font-bold text-maroon">
+                  <div className="flex items-center gap-2.5 pt-3 border-t border-cream-dark">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-maroon/10 to-crimson/10 flex items-center justify-center shrink-0">
+                      <span className="text-xs font-bold text-maroon">
                         {review.author[0]}
                       </span>
                     </div>
-                    <div>
-                      <p className="text-sm sm:text-base font-semibold text-charcoal">{review.author}</p>
-                      <p className="text-xs text-warm-gray-light">
+                    <div className="min-w-0 flex-1">
+                      <p className="text-xs sm:text-sm font-semibold text-charcoal truncate">{review.author}</p>
+                      <p className="text-[10px] text-warm-gray-light truncate">
                         Read on {review.source}
                       </p>
                     </div>
+                    {isActive && (
+                      <svg className="w-3.5 h-3.5 text-crimson shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    )}
                   </div>
-                  <span className="text-xs font-medium text-crimson group-hover:underline hidden sm:inline-flex items-center gap-1">
-                    View source
-                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </span>
-                </div>
-              </a>
-            </div>
-          ))}
+                </a>
+              </div>
+            );
+          })}
+
+          {/* Right spacer */}
+          {showSpacers && (
+            <div
+              className="shrink-0"
+              style={{ width: `${stepPct}%` }}
+              aria-hidden="true"
+            />
+          )}
         </div>
       </div>
 
@@ -151,9 +200,9 @@ export default function ReviewCarousel() {
         type="button"
         onClick={prev}
         aria-label="Previous review"
-        className="absolute top-1/2 -translate-y-1/2 -left-3 sm:-left-5 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border border-cream-dark shadow-md flex items-center justify-center text-maroon hover:bg-maroon hover:text-white hover:border-maroon transition-all z-10"
+        className="absolute top-1/2 -translate-y-1/2 -left-2 sm:-left-5 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-cream-dark shadow-md flex items-center justify-center text-maroon hover:bg-maroon hover:text-white hover:border-maroon transition-all z-10"
       >
-        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
@@ -161,9 +210,9 @@ export default function ReviewCarousel() {
         type="button"
         onClick={next}
         aria-label="Next review"
-        className="absolute top-1/2 -translate-y-1/2 -right-3 sm:-right-5 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border border-cream-dark shadow-md flex items-center justify-center text-maroon hover:bg-maroon hover:text-white hover:border-maroon transition-all z-10"
+        className="absolute top-1/2 -translate-y-1/2 -right-2 sm:-right-5 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-cream-dark shadow-md flex items-center justify-center text-maroon hover:bg-maroon hover:text-white hover:border-maroon transition-all z-10"
       >
-        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
