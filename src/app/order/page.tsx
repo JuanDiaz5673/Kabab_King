@@ -140,7 +140,8 @@ export default function OrderPage() {
 
             {/* Cart Sidebar */}
             <div className="xl:w-96 xl:shrink-0">
-              <div className="xl:sticky xl:top-24 bg-white rounded-xl border border-cream-dark p-5 sm:p-6">
+              <div className="xl:sticky xl:top-24 space-y-4">
+              <div className="bg-white rounded-xl border border-cream-dark p-5 sm:p-6">
                 <h2 className="font-display text-xl font-bold text-charcoal mb-4 flex items-center justify-between">
                   Your Order
                   {itemCount > 0 && (
@@ -222,6 +223,42 @@ export default function OrderPage() {
                     </button>
                   </>
                 )}
+              </div>
+
+              {/* Delivery platform links */}
+              <div className="bg-white rounded-xl border border-cream-dark p-4 sm:p-5 text-center">
+                <p className="text-[10px] text-warm-gray-light uppercase tracking-[0.15em] mb-1">Prefer to use an app?</p>
+                <p className="text-sm font-semibold text-charcoal mb-3">Also available on</p>
+                <div className="flex flex-col gap-2">
+                  <a
+                    href="https://www.ubereats.com/store/kabab-king/2_FcT4QlT26J1hDJgim1Xw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#06C167] text-white text-sm font-semibold rounded-lg hover:brightness-110 transition-all"
+                  >
+                    Uber Eats
+                  </a>
+                  <a
+                    href="https://www.grubhub.com/restaurant/kabab-king-73-01-37th-rd-queens/1454736"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#F63440] text-white text-sm font-semibold rounded-lg hover:brightness-110 transition-all"
+                  >
+                    Grubhub
+                  </a>
+                  <a
+                    href="https://postmates.com/store/kabab-king/2_FcT4QlT26J1hDJgim1Xw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-4 py-2.5 bg-charcoal text-white text-sm font-semibold rounded-lg hover:brightness-125 transition-all"
+                  >
+                    Postmates
+                  </a>
+                </div>
+                <p className="text-[10px] text-warm-gray-light mt-2.5">
+                  Third-party delivery fees may apply
+                </p>
+              </div>
               </div>
             </div>
           </div>

@@ -195,12 +195,12 @@ export default function ReviewCarousel() {
         </div>
       </div>
 
-      {/* Prev / Next buttons */}
+      {/* Desktop side arrows (hidden on mobile) */}
       <button
         type="button"
         onClick={prev}
         aria-label="Previous review"
-        className="absolute top-1/2 -translate-y-1/2 -left-2 sm:-left-5 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-cream-dark shadow-md flex items-center justify-center text-maroon hover:bg-maroon hover:text-white hover:border-maroon transition-all z-10"
+        className="hidden sm:flex absolute top-1/2 -translate-y-1/2 -left-5 w-11 h-11 rounded-full bg-white border border-cream-dark shadow-md items-center justify-center text-maroon hover:bg-maroon hover:text-white hover:border-maroon transition-all z-10"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -210,29 +210,53 @@ export default function ReviewCarousel() {
         type="button"
         onClick={next}
         aria-label="Next review"
-        className="absolute top-1/2 -translate-y-1/2 -right-2 sm:-right-5 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-cream-dark shadow-md flex items-center justify-center text-maroon hover:bg-maroon hover:text-white hover:border-maroon transition-all z-10"
+        className="hidden sm:flex absolute top-1/2 -translate-y-1/2 -right-5 w-11 h-11 rounded-full bg-white border border-cream-dark shadow-md items-center justify-center text-maroon hover:bg-maroon hover:text-white hover:border-maroon transition-all z-10"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
 
-      {/* Dots */}
-      <div className="flex items-center justify-center gap-2 mt-6 sm:mt-8">
-        {reviews.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            onClick={() => setActiveIndex(i)}
-            aria-label={`Go to review ${i + 1}`}
-            aria-current={i === activeIndex}
-            className={`transition-all rounded-full ${
-              i === activeIndex
-                ? 'w-8 h-2 bg-crimson'
-                : 'w-2 h-2 bg-warm-gray-light/40 hover:bg-warm-gray-light'
-            }`}
-          />
-        ))}
+      {/* Bottom navigation: arrows + dots unified on mobile, dots only on desktop */}
+      <div className="flex items-center justify-center gap-3 mt-6 sm:mt-8">
+        <button
+          type="button"
+          onClick={prev}
+          aria-label="Previous review"
+          className="sm:hidden w-8 h-8 rounded-full bg-cream border border-cream-dark flex items-center justify-center text-maroon hover:bg-maroon hover:text-white hover:border-maroon transition-all"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <div className="flex items-center gap-2">
+          {reviews.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setActiveIndex(i)}
+              aria-label={`Go to review ${i + 1}`}
+              aria-current={i === activeIndex}
+              className={`transition-all rounded-full ${
+                i === activeIndex
+                  ? 'w-8 h-2 bg-crimson'
+                  : 'w-2 h-2 bg-warm-gray-light/40 hover:bg-warm-gray-light'
+              }`}
+            />
+          ))}
+        </div>
+
+        <button
+          type="button"
+          onClick={next}
+          aria-label="Next review"
+          className="sm:hidden w-8 h-8 rounded-full bg-cream border border-cream-dark flex items-center justify-center text-maroon hover:bg-maroon hover:text-white hover:border-maroon transition-all"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ export const reviews: Review[] = [
     title: 'Mayor of New York City',
     text: 'You gotta go there for biryani.',
     source: 'The New Yorker',
-    url: 'https://www.newyorker.com/',
+    url: 'https://www.youtube.com/shorts/q-_uPs97S0k',
   },
   {
     author: 'Anish C',
