@@ -24,7 +24,7 @@ export const categoryImages: Record<string, string> = {
   Drinks: '/menu/haleem.jpg',
 };
 
-export const heroImage = '/menu/beef-kabab.jpg';
+export const heroImage = 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=1200&h=900&fit=crop';
 
 export const categories = [
   'All',
