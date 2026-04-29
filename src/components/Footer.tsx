@@ -122,9 +122,9 @@ export default function Footer() {
           </p>
           <p className="text-xs text-white/50">
             Website by{' '}
-            <a href="https://intellizen.io" target="_blank" rel="noopener noreferrer" className="text-gold/70 hover:text-gold transition-colors">
+            <span className="text-gold/70">
               Intellizen LLC
-            </a>
+            </span>
           </p>
         </div>
       </div>

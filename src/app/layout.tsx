@@ -241,6 +241,17 @@ export default function RootLayout({
         <Navbar />
         <main id="main-content" className="flex-1 pt-20 sm:pt-[91px]">{children}</main>
         <Footer />
+        {/* Diagonal watermark overlay */}
+        <div className="fixed inset-0 pointer-events-none z-[9998] overflow-hidden" aria-hidden="true">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <p
+              className="text-[clamp(2rem,5vw,4rem)] font-bold uppercase tracking-[0.25em] text-charcoal/[0.06] whitespace-nowrap select-none"
+              style={{ transform: 'rotate(-30deg)' }}
+            >
+              Made by Intellizen LLC
+            </p>
+          </div>
+        </div>
       </body>
     </html>
   );
