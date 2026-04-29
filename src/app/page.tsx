@@ -85,7 +85,7 @@ export default function Home() {
           </div>
 
           {/* Halal stamp + Mayor endorsement badge */}
-          <div className="mt-5 sm:mt-6 flex items-center justify-start gap-1.5 flex-wrap">
+          <div className="mt-5 sm:mt-6 flex items-center justify-start gap-3 flex-wrap">
             <Image
               src="/halal-logo.png"
               alt="Halal Certified"
