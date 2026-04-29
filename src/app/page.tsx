@@ -89,9 +89,9 @@ export default function Home() {
             <Image
               src="/halal-logo.png"
               alt="Halal Certified"
-              width={70}
-              height={70}
-              className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] object-contain drop-shadow-lg"
+              width={120}
+              height={120}
+              className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain drop-shadow-lg"
             />
             <Link
               href="#mayor-endorsement"
