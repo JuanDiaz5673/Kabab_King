@@ -88,7 +88,7 @@ export default function Home() {
           <div className="mt-5 sm:mt-6 flex items-center justify-center sm:justify-start gap-4 flex-wrap">
             <div className="inline-flex bg-white/80 backdrop-blur-sm rounded-full p-0.5 shadow-lg">
               <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Halal_logo.svg/200px-Halal_logo.svg.png"
+                src="/halal-logo.png"
                 alt="Halal Certified"
                 width={60}
                 height={60}
