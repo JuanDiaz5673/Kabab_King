@@ -91,7 +91,7 @@ export default function Home() {
               alt="Halal Certified"
               width={120}
               height={120}
-              className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] object-contain drop-shadow-lg"
+              className="w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] object-contain drop-shadow-lg"
             />
             <Link
               href="#mayor-endorsement"
