@@ -63,7 +63,7 @@ export default function OrderPage() {
             {/* Menu List */}
             <div className="flex-1 min-w-0">
               {/* Categories */}
-              <div className="flex gap-2 overflow-x-auto pb-3 hide-scrollbar mb-6">
+              <div className="flex gap-2 overflow-x-auto pb-3 hide-scrollbar mb-4">
                 {categories.map((cat) => (
                   <button
                     key={cat}
@@ -77,6 +77,39 @@ export default function OrderPage() {
                     {cat}
                   </button>
                 ))}
+              </div>
+
+              {/* Mobile delivery app strip — promote third-party options near the top */}
+              <div className="xl:hidden flex items-center gap-2 mb-5 p-2.5 bg-cream rounded-lg border border-cream-dark">
+                <span className="text-[11px] font-semibold text-warm-gray uppercase tracking-wider shrink-0 pl-1">
+                  Or order on
+                </span>
+                <div className="flex gap-1.5 flex-1 min-w-0">
+                  <a
+                    href="https://www.ubereats.com/store/kabab-king/2_FcT4QlT26J1hDJgim1Xw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center px-2 py-1.5 bg-[#06C167] text-white text-[11px] font-bold rounded-md hover:brightness-110 transition-all min-w-0 truncate"
+                  >
+                    Uber Eats
+                  </a>
+                  <a
+                    href="https://www.grubhub.com/restaurant/kabab-king-73-01-37th-rd-queens/1454736"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center px-2 py-1.5 bg-[#F63440] text-white text-[11px] font-bold rounded-md hover:brightness-110 transition-all min-w-0 truncate"
+                  >
+                    Grubhub
+                  </a>
+                  <a
+                    href="https://postmates.com/store/kabab-king/2_FcT4QlT26J1hDJgim1Xw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center px-2 py-1.5 bg-charcoal text-white text-[11px] font-bold rounded-md hover:brightness-125 transition-all min-w-0 truncate"
+                  >
+                    Postmates
+                  </a>
+                </div>
               </div>
 
               {/* Items grid */}
