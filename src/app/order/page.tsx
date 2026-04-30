@@ -159,7 +159,7 @@ export default function OrderPage() {
             </div>
 
             {/* Cart Sidebar */}
-            <div className="xl:w-96 xl:shrink-0">
+            <div id="order-cart" className="xl:w-96 xl:shrink-0 scroll-mt-24">
               <div className="xl:sticky xl:top-24 space-y-4">
               <div className="bg-white rounded-xl border border-cream-dark p-5 sm:p-6">
                 <h2 className="font-display text-xl font-bold text-charcoal mb-4 flex items-center justify-between">
@@ -284,6 +284,27 @@ export default function OrderPage() {
           </div>
         </div>
       </section>
+
+      {/* Floating cart button — mobile only */}
+      <a
+        href="#order-cart"
+        className="xl:hidden fixed bottom-5 right-5 z-40 flex items-center gap-2 pl-4 pr-5 py-3 bg-crimson text-white font-semibold rounded-full shadow-2xl shadow-crimson/40 hover:bg-crimson-dark transition-all active:scale-95"
+        aria-label={itemCount > 0 ? `View cart with ${itemCount} ${itemCount === 1 ? 'item' : 'items'}` : 'View cart and delivery options'}
+      >
+        <span className="relative">
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+          </svg>
+          {itemCount > 0 && (
+            <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-gold text-charcoal text-[10px] font-bold flex items-center justify-center border-2 border-crimson">
+              {itemCount}
+            </span>
+          )}
+        </span>
+        <span className="text-sm">
+          {itemCount > 0 ? `Cart · $${total.toFixed(2)}` : 'View Cart'}
+        </span>
+      </a>
 
       {/* Checkout Modal */}
       {showCheckout && (
