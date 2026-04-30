@@ -44,3 +44,6 @@ out/
 # claude
 CLAUDE.md
 .claude/settings.local.json
+
+# internal docs (client-facing deliverables, not site code)
+HOSTING.md
